@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Curriculum Edgar Ribeiro Swarowski</title>
+    <!-- Import Styles -->
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Import Vue.js -->
+    <script src="https://unpkg.com/vue@3.0.0-beta.12/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div class="nav-bar">
+        <a class="active" href='#home'>Início</a>
+        <a href='#contato'>Contato</a>
+        <a href='#resumo'>Resumo</a>
+        <a href="#experiencia">Experiência Profissional</a>
+        <a href="#educacao">Educação</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href='#idiomas'>Idiomas</a>
+        <a href='#footer'>Sobre</a>
+      </div>
+      <div id="home" class="title">
+        <h1>{{title}}</h1>
+      </div>
+      <div id="contato">
+        <p><i class="fa fa-fw fa-envelope"></i>{{email}} | <i class="fa fa-fw fa-phone"></i>{{ phone }} </p>
+      </div>       
+      <div id="resumo" class='resumo' >
+        <h2>Resumo:</h2>
+        <p>{{resumo}}</p>
+      </div>
+      <div id="experiencia" class="experiencia">
+        <h2>Experiência Profissional:</h2>
+        <ul v-for='info in infos' :key="info">
+            <li class="nome">Empresa: {{ info.company }}</li>
+              <ul>
+                <li>Função: {{info.function}}</li>
+                <li>Descrição: {{info.descricao}}</li>
+                <li>Período: {{info.dataI}} - {{info.dataF}}</li>
+                <li>Tecnologias: {{info.tecnologias}}</li>
+              </ul>
+        </ul>
+      </div>
+      <div id="educacao" class="educacao">
+        <h2>Educação:</h2>
+        <ul v-for='education in educations' :key="education">
+          <li class="nome">{{education.tipo}}</li>
+            <ul>
+              <li>Estabelecimento: {{education.local}}</li>
+              <li>Área: {{education.area}}</li>
+              <li>Período: {{education.dataI}} - {{education.dataF}}</li>
+            </ul>
+        </ul>
+      </div>
+      <div id="habilidades" class="habilidades">
+        <h2>Cursos e Atividades de Atualização:</h2>
+        <ul v-for='course in courses' :key="course">
+          <li class="nome">{{course.Nome}}</li>
+            <ul>
+              <li>Estabelecimento: {{course.local}}</li>
+              <li>Duração: {{course.duracao}}</li>
+            </ul>
+        </ul>
+      </div>
+        <div id="idiomas" class="idiomas">
+          <h2>Idiomas:</h2>
+          <ul v-for='idioma in idiomas' :key="idioma">
+            <li>{{idioma.nome}} - {{idioma.nivel}}</li>
+          </ul>
+          <br/>
+        </div>
+        <div id='footer' class='footer'>
+          <ul class="sidebyside">
+            <li>Desenvolvido por Edgar Swarowski</li>
+            <li><a :href="giturl" target="blank"><i class="fa fa-github"></i></a></li>
+            <li><a :href="fburl" target="blank"><i class="fa fa-facebook"></i></a></li>
+          </ul>
+        </div>
+    </div>
+    <!-- Import App -->
+    <script src="./main.js"></script>
+
+    <!-- Mount App -->
+    <script>
+        const mountedApp = app.mount('#app')
+    </script>
+
+  </body>
+</html>
